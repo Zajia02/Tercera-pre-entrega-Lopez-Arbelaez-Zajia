@@ -1,0 +1,30 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+    <h1>Guantes</h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Talle</th>
+            <th>Color1</th>
+            <th>Color2</th>
+            <th>Modelo</th>
+        </tr>
+
+    {% for c in guantes %}
+     
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.talle }}</td>
+            <td>{{ c.color1 }}</td>
+            <td>{{ c.color2 }}</td>
+            <td>{{ c.modelo }}</td> 
+        </tr>
+    
+    {% endfor %}  
+
+    </table> 
+{% endblock contenido %}
