@@ -1,6 +1,7 @@
 from django.urls import path, include
 from .views import *
-from .form import *
+from .forms import *
+
 
 urlpatterns = [
     path('', home, name="home" ),
