@@ -4,8 +4,7 @@ from .forms import *
 
 
 urlpatterns = [
-    path('', home, name="home" ),
-    path('inicio/', inicio, name="inicio" ), 
+    path('', inicio, name="inicio" ), 
     path('campera/', campera, name="campera" ), 
     path('chaleco/', chaleco, name="chaleco" ), 
     path('pantalon/', pantalon, name="pantalon" ), 
