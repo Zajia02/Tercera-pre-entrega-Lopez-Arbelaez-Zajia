@@ -7,6 +7,11 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dream Chopper</title>
+        
+        {% block titulo %}
+            
+        {% endblock titulo %}
+            
 
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -30,14 +35,14 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'pantalon' %}">Pantalones</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'chaparreras' %}">Chaparreras</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'guantes' %}">Guantes</a></li>                                    
-                    </ul>
-                    <form class="d-flex">
+                    </ul> 
+                   <!--form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Carrito
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
-                    </form>
+                    </form-->
                 </div>
             </div>
         </nav>
@@ -59,7 +64,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img src="{% static/inicio/assets/img/IMG_8891.JPG %}" alt="Imagen de ejemplo"/>
+                            <img src="{% static 'inicio/assets/img/IMG_2025.JPG' %}" alt="Imagen de ejemplo"/>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -71,14 +76,14 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div>
+                                <!--div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div-->
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
+                            <img src="{% static 'inicio/assets/img/IMG_2024.JPG' %}" alt="Imagen de ejemplo"/>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -92,14 +97,14 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div>
+                                <!--div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div-->
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
+                            <img src="{% static 'inicio/assets/img/IMG_2026.JPG' %}" alt="Imagen de ejemplo"/>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -111,14 +116,14 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div>
+                                <!--div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div-->
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
+                            <img src="{% static 'inicio/assets/img/IMG_2022.JPG' %}" alt="Imagen de ejemplo"/>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -132,14 +137,14 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div>
+                                <!--div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div-->
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
+                            <img src="{% static 'inicio/assets/img/IMG_8894.JPG' %}" alt="Imagen de ejemplo"/>
                              <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -153,7 +158,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div>
+                                <!--div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agregar al carrito</a></div-->
                             </div>
                         </div>
                     </div>
