@@ -45,6 +45,7 @@ def camperaForm(request):
                               color2=campera_color2,
                               modelo=campera_modelo)
             campera.save()
+            return HttpResponse("Se agregó la campera con éxito")
             return render(request, "inicio/base.html")
     else:
         miForm = CamperaForm()
@@ -64,6 +65,7 @@ def chalecoForm(request):
                               color2=chaleco_color2,
                               modelo=chaleco_modelo)
             chaleco.save()
+            return HttpResponse("Se agregó el chaleco con éxito")
             return render(request, "inicio/base.html")
     else:
         miForm = ChalecoForm()
@@ -83,6 +85,7 @@ def chaparrerasForm(request):
                               color2=chaparreras_color2,
                               modelo=chaparreras_modelo)
             chaparreras.save()
+            return HttpResponse("Se agregaron las chaparreras con éxito")
             return render(request, "inicio/base.html")
     else:
         miForm = ChaparrerasForm()
@@ -102,6 +105,7 @@ def guantesForm(request):
                               color2=guantes_color2,
                               modelo=guantes_modelo)
             guantes.save()
+            return HttpResponse("Se agregaron los guantes con éxito")
             return render(request, "inicio/base.html")
     else:
         miForm = GuantesForm()
@@ -121,11 +125,13 @@ def pantalonForm(request):
                               color2=pantalon_color2,
                               modelo=pantalon_modelo)
             pantalon.save()
+            return HttpResponse("Se agregó el pantalón con éxito")
             return render(request, "inicio/base.html")
     else:
         miForm = PantalonForm()
         
     return render(request, "inicio/pantalonForm.html", {"form": miForm})
+    
 
 # Formularios de Búsqueda
 
