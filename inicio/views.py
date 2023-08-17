@@ -1,14 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.db.models import Q
 
 from .models import *
 from .forms import *
 
 
 # Create your views here.
-def home(request):
-    return render(request, "inicio/home.html")
-
 def inicio(request):
     return render(request, "inicio/inicio.html")
 
@@ -126,4 +124,60 @@ def pantalonForm(request):
         miForm = PantalonForm()
         
     return render(request, "inicio/pantalonForm.html", {"form": miForm})
+
+def buscarCampera(request):
+    return render(request, "inicio/buscarCampera.html")
+
+def buscar2(request):
+    if request.GET['buscar']:
+        patron = request.GET['buscar']
+        talle = Campera.objects.filter(talle__icontains=patron)
+        if talle:
+            contexto = {'resultado':talle}
+        elif talle:
+            contexto = {'resultado':talle}
+        color1 = Campera.objects.filter(color1__icontains=patron)
+        if color1:
+            contexto = {'resultado':color1}
+        elif color1:
+            contexto = {'resultado':color1}
+        color2 = Campera.objects.filter(color2__icontains=patron)
+        if color2:
+            contexto = {'resultado':color2}
+        elif color2:
+            contexto = {'resultado':color2}
+        modelo = Campera.objects.filter(modelo__icontains=patron)
+        if modelo:
+            contexto = {'resultado':modelo}
+        elif modelo:
+            contexto = {'resultado':modelo}
+                                         
+        return render(request, "inicio/campera.html", contexto)
+    return HttpResponse("No se ingresó nada en buscar")
+
+
+def buscarChaleco(request):
+    return render(request, "inicio/buscarChaleco.html")
+
+def buscar3(request):
+    patron = request.GET.get('buscar')  # Usar request.GET.get() para evitar KeyError
+
+    if patron:
+        talle_chaleco = Chaleco.objects.filter(talle__icontains=patron)
+        color1_chaleco = Chaleco.objects.filter(color1__icontains=patron)
+        color2_chaleco = Chaleco.objects.filter(color2__icontains=patron)
+        modelo_chaleco = Chaleco.objects.filter(modelo__icontains=patron)
+
+        buscar = talle_chaleco | color1_chaleco | color2_chaleco | modelo_chaleco
+
+        if chaleco:
+            contexto = {'chaleco': chaleco}
+        else:
+            contexto = {'mensaje': "No se encontraron chalecos"}
+
+        return render(request, "inicio/chaleco.html", contexto)
+    else:
+        return HttpResponse("No se ingresó nada en buscar")
+
+        
     

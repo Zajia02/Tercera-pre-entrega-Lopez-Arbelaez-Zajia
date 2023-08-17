@@ -15,5 +15,12 @@ urlpatterns = [
     path('chaleco_form/', chalecoForm, name="chaleco_form" ),
     path('pantalon_form/', pantalonForm, name="pantalon_form" ),
     path('chaparreras_form/', chaparrerasForm, name="chaparreras_form" ),
-    path('guantes_form/', guantesForm, name="guantes_form" ),
+    
+    path('buscar_campera/', buscarCampera, name="buscar_campera" ),
+    path('buscar2/', buscar2, name="buscar2" ),
+    
+    path('buscar_chaleco/', buscarChaleco, name="buscar_chaleco" ),
+    path('buscar3/', buscar3, name="buscar3" ),
+    
+    
 ]
