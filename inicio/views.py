@@ -30,6 +30,8 @@ def guantes(request):
     contexto = {'guantes': Guantes.objects.all() }
     return render(request, "inicio/guantes.html", contexto)
 
+# Formularios de agregación
+
 def camperaForm(request):
     if request.method == "POST":
         miForm = CamperaForm(request.POST)
@@ -125,42 +127,40 @@ def pantalonForm(request):
         
     return render(request, "inicio/pantalonForm.html", {"form": miForm})
 
+# Formularios de Búsqueda
+
 def buscarCampera(request):
     return render(request, "inicio/buscarCampera.html")
 
 def buscar2(request):
-    if request.GET['buscar']:
-        patron = request.GET['buscar']
-        talle = Campera.objects.filter(talle__icontains=patron)
-        if talle:
-            contexto = {'resultado':talle}
-        elif talle:
-            contexto = {'resultado':talle}
-        color1 = Campera.objects.filter(color1__icontains=patron)
-        if color1:
-            contexto = {'resultado':color1}
-        elif color1:
-            contexto = {'resultado':color1}
-        color2 = Campera.objects.filter(color2__icontains=patron)
-        if color2:
-            contexto = {'resultado':color2}
-        elif color2:
-            contexto = {'resultado':color2}
-        modelo = Campera.objects.filter(modelo__icontains=patron)
-        if modelo:
-            contexto = {'resultado':modelo}
-        elif modelo:
-            contexto = {'resultado':modelo}
-                                         
-        return render(request, "inicio/campera.html", contexto)
-    return HttpResponse("No se ingresó nada en buscar")
+    patron = request.GET.get('buscar') # Usar request.GET.get() para evitar KeyError
 
+    if patron:
+        talle_campera = Campera.objects.filter(talle__icontains=patron)
+        color1_campera = Campera.objects.filter(color1__icontains=patron)
+        color2_campera = Campera.objects.filter(color2__icontains=patron)
+        modelo_campera = Campera.objects.filter(modelo__icontains=patron)
+
+        if talle_campera:
+            contexto = {'campera': talle_campera}
+        elif color1_campera:
+            contexto = {'campera': color1_campera}
+        elif color2_campera:
+            contexto = {'campera': color2_campera}
+        elif modelo_campera:
+            contexto = {'campera': modelo_campera}
+        else:
+            return HttpResponse("No se encontraron camperas")   
+
+        return render(request, "inicio/campera.html", contexto)
+    else:
+        return HttpResponse("No se ingresó nada en buscar")
 
 def buscarChaleco(request):
     return render(request, "inicio/buscarChaleco.html")
 
 def buscar3(request):
-    patron = request.GET.get('buscar')  # Usar request.GET.get() para evitar KeyError
+    patron = request.GET.get('buscar') # Usar request.GET.get() para evitar KeyError
 
     if patron:
         talle_chaleco = Chaleco.objects.filter(talle__icontains=patron)
@@ -168,16 +168,101 @@ def buscar3(request):
         color2_chaleco = Chaleco.objects.filter(color2__icontains=patron)
         modelo_chaleco = Chaleco.objects.filter(modelo__icontains=patron)
 
-        buscar = talle_chaleco | color1_chaleco | color2_chaleco | modelo_chaleco
-
-        if chaleco:
-            contexto = {'chaleco': chaleco}
+        if talle_chaleco:
+            contexto = {'chaleco': talle_chaleco}
+        elif color1_chaleco:
+            contexto = {'chaleco': color1_chaleco}
+        elif color2_chaleco:
+            contexto = {'chaleco': color2_chaleco}
+        elif modelo_chaleco:
+            contexto = {'chaleco': modelo_chaleco}
         else:
-            contexto = {'mensaje': "No se encontraron chalecos"}
+            return HttpResponse("No se encontraron chalecos")    
 
         return render(request, "inicio/chaleco.html", contexto)
     else:
         return HttpResponse("No se ingresó nada en buscar")
+    
+def buscarChaparreras(request):
+    return render(request, "inicio/buscarChaparreras.html")
+
+def buscar4(request):
+    patron = request.GET.get('buscar') # Usar request.GET.get() para evitar KeyError
+
+    if patron:
+        talle_chaparreras = Chaparreras.objects.filter(talle__icontains=patron)
+        color1_chaparreras = Chaparreras.objects.filter(color1__icontains=patron)
+        color2_chaparreras = Chaparreras.objects.filter(color2__icontains=patron)
+        modelo_chaparreras = Chaparreras.objects.filter(modelo__icontains=patron)
+
+        if talle_chaparreras:
+            contexto = {'chaparreras': talle_chaparreras}
+        elif color1_chaparreras:
+            contexto = {'chaparreras': color1_chaparreras}
+        elif color2_chaparreras:
+            contexto = {'chaparreras': color2_chaparreras}
+        elif modelo_chaparreras:
+            contexto = {'chaparreras': modelo_chaparreras}
+        else:
+            return HttpResponse("No se encontraron chaparreras")    
+
+        return render(request, "inicio/chaparreras.html", contexto)
+    else:
+        return HttpResponse("No se ingresó nada en buscar")
+    
+def buscarGuantes(request):
+    return render(request, "inicio/buscarGuantes.html")
+
+def buscar5(request):
+    patron = request.GET.get('buscar') # Usar request.GET.get() para evitar KeyError
+
+    if patron:
+        talle_guantes = Guantes.objects.filter(talle__icontains=patron)
+        color1_guantes = Guantes.objects.filter(color1__icontains=patron)
+        color2_guantes = Guantes.objects.filter(color2__icontains=patron)
+        modelo_guantes = Guantes.objects.filter(modelo__icontains=patron)
+
+        if talle_guantes:
+            contexto = {'guantes': talle_guantes}
+        elif color1_guantes:
+            contexto = {'guantes': color1_guantes}
+        elif color2_guantes:
+            contexto = {'guantes': color2_guantes}
+        elif modelo_guantes:
+            contexto = {'guantes': modelo_guantes}
+        else:
+            return HttpResponse("No se encontraron guantes")    
+
+        return render(request, "inicio/guantes.html", contexto)
+    else:
+        return HttpResponse("No se ingresó nada en buscar")
+
+def buscarPantalon(request):
+    return render(request, "inicio/buscarPantalon.html")    
+    
+def buscar6(request):
+    patron = request.GET.get('buscar') # Usar request.GET.get() para evitar KeyError
+
+    if patron:
+        talle_pantalon = Pantalon.objects.filter(talle__icontains=patron)
+        color1_pantalon = Pantalon.objects.filter(color1__icontains=patron)
+        color2_pantalon = Pantalon.objects.filter(color2__icontains=patron)
+        modelo_pantalon = Pantalon.objects.filter(modelo__icontains=patron)
+
+        if talle_pantalon:
+            contexto = {'pantalon': talle_pantalon}
+        elif color1_pantalon:
+            contexto = {'pantalon': color1_pantalon}
+        elif color2_pantalon:
+            contexto = {'pantalon': color2_pantalon}
+        elif modelo_pantalon:
+            contexto = {'pantalon': modelo_pantalon}
+        else:
+            return HttpResponse("No se encontraron pantalones")    
+
+        return render(request, "inicio/pantalon.html", contexto)
+    else:
+        return HttpResponse("No se ingresó nada en buscar")        
 
         
     
