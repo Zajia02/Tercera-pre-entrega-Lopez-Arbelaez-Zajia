@@ -24,7 +24,7 @@ DreamChopper es una plataforma en línea diseñada para conectar a los amantes d
 
 ## Instalación y Uso
 
-1. Clona este repositorio: `git clone https://github.com/tuusuario/motoleather.git`
+1. Clona este repositorio: `git clone https://github.com/Zajia02/Tercera-pre-entrega-Lopez-Arbelaez-Zajia.git`
 2. Navega al directorio del proyecto: `cd dreamchopper`
 3. Instala las dependencias: `pip install -r requirements.txt`
 4. Realiza las migraciones de la base de datos: `python manage.py migrate`
